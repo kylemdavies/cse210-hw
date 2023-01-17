@@ -12,6 +12,7 @@ class Program
         Console.WriteLine(" Enter number: ");
         float input = float.Parse(Console.ReadLine());
         while (input != 0)
+        
         {
             numbers.Add(input);
             Console.WriteLine(" Enter number: ");
@@ -26,7 +27,7 @@ class Program
                 bigNum = number;
             }
         }
-        
+
         average = sum / numbers.Count;
         Console.WriteLine($"The sum is {sum}");
         Console.WriteLine($"The average is {average}");
