@@ -19,12 +19,15 @@ class Program
             Console.WriteLine($"5. Close Program");
             Console.WriteLine($"Enter the number of the action you would like to do:");
             number = int.Parse(Console.ReadLine());
+            //Make entry
             if (number == 1) {
 
             }
+            //Display entries
             else if (number == 2) {
 
             }
+            //Load entries
             else if (number == 3) {
                 Console.WriteLine("Please enter the filename (Ex. 'filename.txt')");
                 string filename = Console.ReadLine();
@@ -38,9 +41,10 @@ class Program
                     string entryResponse = parts[2];
                 }
             }
+            //Save entries
             else if (number == 4) {
                 Console.WriteLine("Please enter the filename (Ex. 'filename.txt')");
-                string fileName = "myFile.txt";
+                string fileName = Console.ReadLine();
 
                 using (StreamWriter outputFile = new StreamWriter(fileName))
                 {
@@ -48,11 +52,13 @@ class Program
                 }
                 
             }
+            //Number entered is too high error
             else if (number >= 6) {
                 Console.WriteLine(attentionLine);
                 Console.WriteLine($"I'm sorry {number} is not an option please try another number!");
                 Console.WriteLine(attentionLine);
             }
+            //Close Program
             else {
                 Console.WriteLine(attentionLine);
                 Console.WriteLine($"Please come again!");
