@@ -21,7 +21,7 @@ class Program
             number = int.Parse(Console.ReadLine());
             //Make entry
             if (number == 1) {
-
+                
             }
             //Display entries
             else if (number == 2) {
@@ -34,11 +34,7 @@ class Program
                 string[] lines = System.IO.File.ReadAllLines(filename);
                 foreach (string line in lines)
                 {
-                    string[] parts = line.Split(",");
-
-                    string entryDate = parts[0];
-                    string entryPrompt = parts[1];
-                    string entryResponse = parts[2];
+                    
                 }
             }
             //Save entries
@@ -48,9 +44,8 @@ class Program
 
                 using (StreamWriter outputFile = new StreamWriter(fileName))
                 {
-                    outputFile.WriteLine($"{/*Array*/}");
+                    outputFile.WriteLine();
                 }
-                
             }
             //Number entered is too high error
             else if (number >= 6) {
