@@ -72,8 +72,4 @@ class Program
             }
         }
     }
-    public static void DisplayGoals()
-    {
-        Console.WriteLine($"{}");
-    }
 }
