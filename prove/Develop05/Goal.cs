@@ -2,6 +2,7 @@ using System;
 
 public class Goal
 {
+    protected string _type;
     protected string _name;
     protected string _description;
     protected int _points = 0;
@@ -10,6 +11,14 @@ public class Goal
     {
     }
 
+    public string GetGoalType()
+    {
+        return _type;
+    }
+    public void SetGoalType(string type)
+    {
+        _type = type;
+    }
     public string GetName()
     {
         return _name;
@@ -35,14 +44,28 @@ public class Goal
         _points = points;
     }
     
-    private int _complete = 0;
+    private float _complete = 0;
 
-    public virtual void SetComplete(int complete)
+    public virtual void SetComplete(float complete)
     {
         _complete = complete;
     }
-    public virtual int IsComplete()
+    public virtual float IsComplete()
     {
         return 0;
     }
+
+    private int _times = 0;
+
+    public virtual int GetTimes()
+    {
+        return _times;
+    }
+
+    public virtual void SetTimes(int times)
+    {
+        _times = times;
+    }
+
 }
+

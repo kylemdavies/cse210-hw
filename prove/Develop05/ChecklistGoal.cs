@@ -1,26 +1,26 @@
 using System;
 
-public class MultiUseGoal : Goal
+public class ChecklistGoal : Goal
 {
-    private int _complete = 0;
+    private float _complete = 0;
     private int _times = 0;
 
-    public int GetTimes()
+    public override int GetTimes()
     {
         return _times;
     }
 
-    public void SetTimes(int times)
+    public override void SetTimes(int times)
     {
         _times = times;
     }
 
-    public override void SetComplete(int complete)
+    public override void SetComplete(float complete)
     {
         _complete = complete;
     }
-    public override int IsComplete()
+    public override float IsComplete()
     {
-        return _complete;
+        return _complete/_times;
     }
 }

@@ -33,6 +33,7 @@ class Program
                     Console.WriteLine($"How many points is this worth?");
                     int points = int.Parse(Console.ReadLine());
                     SimpleGoal sGoal = new SimpleGoal();
+                    sGoal.SetGoalType("Simple Goal");
                     sGoal.SetName(name);
                     sGoal.SetDescription(description);
                     sGoal.SetPoints(points);
@@ -48,6 +49,7 @@ class Program
                     Console.WriteLine($"How many points is this worth?");
                     int points = int.Parse(Console.ReadLine());
                     EternalGoal eGoal = new EternalGoal();
+                    eGoal.SetGoalType("Eternal Goal");
                     eGoal.SetName(name);
                     eGoal.SetDescription(description);
                     eGoal.SetPoints(points);
@@ -56,7 +58,22 @@ class Program
                 }
                 else
                 {
-
+                    Console.WriteLine($"What is the name of this goal?");
+                    string name = (Console.ReadLine());
+                    Console.WriteLine($"What is a short description of it?");
+                    string description = (Console.ReadLine());
+                    Console.WriteLine($"How many times would you like to complete this goal?");
+                    int times = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"How many points is this worth?");
+                    int points = int.Parse(Console.ReadLine());
+                    ChecklistGoal cGoal = new ChecklistGoal();
+                    cGoal.SetGoalType("Checklist Goal");
+                    cGoal.SetName(name);
+                    cGoal.SetDescription(description);
+                    cGoal.SetPoints(points);
+                    cGoal.SetComplete(0);
+                    cGoal.SetTimes(times);
+                    goals.Add(cGoal);
                 }
             }
             //List Goals
@@ -64,8 +81,8 @@ class Program
             {
                 foreach (Goal goal in goals)
                 {
-                    int completed = goal.IsComplete();
-                    if (completed == 0)
+                    float completed = goal.IsComplete();
+                    if (completed != 1)
                     {
                         Console.WriteLine($"[ ] {goal.GetName()} : {goal.GetDescription()}");
                     }
@@ -73,8 +90,8 @@ class Program
                     {
                         Console.WriteLine($"[✓] {goal.GetName()} : {goal.GetDescription()}");
                     }
-                    Console.WriteLine(Break);
                 }
+                Console.WriteLine(Break);
             }
             //Save Goals
             else if (Choice == 3)
@@ -89,25 +106,34 @@ class Program
             //Record Event
             else if (Choice == 5)
             {
-                int indexNum = 0;
+                int indexNum = 1;
+                float completed =  0;
                 foreach (Goal goal in goals)
                 {
-                    int completed = goal.IsComplete();
+                    completed = goal.IsComplete();
                     
-                    if (completed == 0)
+                    if (completed != 1)
                     {
-                        Console.WriteLine($"{indexNum}. [ ] {goal.GetName()} : {goal.GetDescription()}");
+                        string goalType = goal.GetGoalType();
+                        if (goalType == "Checklist Goal")
+                        {
+                            Console.WriteLine($"{indexNum}. [ ] {goal.GetName()} : {goal.GetDescription()} [{completed}]");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"{indexNum}. [ ] {goal.GetName()} : {goal.GetDescription()}");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine($"[✓] {goal.GetName()} : {goal.GetDescription()}");
+                        Console.WriteLine($"{indexNum}. [✓] {goal.GetName()} : {goal.GetDescription()}");
                     }
                     indexNum += 1;
                 }
+                Console.WriteLine(Break);
                 Console.WriteLine("Which goal did you acomplish?");
-                int completedGoal = int.Parse(Console.ReadLine());
+                int completedGoal = int.Parse(Console.ReadLine()) - 1;
                 totalPoints = goals[completedGoal].GetPoints();
-                goals[completedGoal].SetComplete(1);
                 
                 Console.WriteLine($"Congrats on completing your goal of: {goals[completedGoal].GetName()}!");
                 Console.WriteLine(Break);

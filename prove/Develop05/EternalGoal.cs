@@ -2,9 +2,9 @@ using System;
 
 public class EternalGoal : Goal
 {
-    private int _complete = 0;
+    private float _complete = 0;
 
-    public override int IsComplete()
+    public override float IsComplete()
     {
         return _complete;
     }
