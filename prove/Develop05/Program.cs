@@ -5,15 +5,17 @@ class Program
     static void Main(string[] args)
     {
         int Choice = 0;
+        string Break = "--------------------------------------------- \n \n---------------------------------------------";
         int totalPoints =  0;
         List<Goal> goals = new List<Goal>();
         string Menu = "Menu Options \n 1. Create New Goal \n 2. List Goals \n 3. Save Goals \n 4. Load Goals \n 5. Record Event \n 6. Quit";
-        while (Choice != 4)
+        while (Choice != 6)
         {
             //Displays Menu and Reads response
             Console.WriteLine($"{Menu}");
             Console.WriteLine($"v Select a choice from the menu: ");
             Choice = int.Parse(Console.ReadLine());
+            Console.WriteLine(Break);
             int Goaltype = 0;
             //Create Goals
             if (Choice == 1)
@@ -21,6 +23,7 @@ class Program
                 Console.WriteLine("1. Simple Goal \n 2. Eternal Goal \n 3. Checklist Goal");
                 Console.WriteLine($"v Select a choice from the menu: ");
                 Goaltype = int.Parse(Console.ReadLine());
+                Console.WriteLine(Break);
                 if (Goaltype == 1)
                 {
                     Console.WriteLine($"What is the name of this goal?");
@@ -68,19 +71,20 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("Something is off.");
+                        Console.WriteLine($"[✓] {goal.GetName()} : {goal.GetDescription()}");
                     }
+                    Console.WriteLine(Break);
                 }
             }
             //Save Goals
             else if (Choice == 3)
             {
-
+                Console.WriteLine(Break);
             }
             //Load Goals
             else if (Choice == 4)
             {
-
+                Console.WriteLine(Break);
             }
             //Record Event
             else if (Choice == 5)
@@ -96,7 +100,7 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("Something is off.");
+                        Console.WriteLine($"[✓] {goal.GetName()} : {goal.GetDescription()}");
                     }
                     indexNum += 1;
                 }
@@ -105,11 +109,13 @@ class Program
                 totalPoints = goals[completedGoal].GetPoints();
                 goals[completedGoal].SetComplete(1);
                 
-
+                Console.WriteLine($"Congrats on completing your goal of: {goals[completedGoal].GetName()}!");
+                Console.WriteLine(Break);
             }
             else
             {
-
+                Console.WriteLine("Hope you have a great day!");
+                Console.Clear();
             }
         }
     }

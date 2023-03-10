@@ -34,6 +34,7 @@ public class Goal
     {
         _points = points;
     }
+    
     private int _complete = 0;
 
     public virtual void SetComplete(int complete)
