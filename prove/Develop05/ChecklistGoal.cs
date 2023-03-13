@@ -4,7 +4,6 @@ public class ChecklistGoal : Goal
 {
     private float _complete = 0;
     private int _times = 0;
-    private int _timesCompleted = 0;
 
     public override int GetTimes()
     {
@@ -15,16 +14,10 @@ public class ChecklistGoal : Goal
     {
         _times = times;
     }
-    public override int getTimesCompleted()
+    public override float getComplete()
     {
-        return _timesCompleted;
+        return _complete;
     }
-
-    public override void SetTimesCompleted(int times)
-    {
-        _timesCompleted = times;
-    }
-
     public override void SetComplete(float complete)
     {
         _complete = complete;

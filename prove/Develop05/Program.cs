@@ -7,6 +7,7 @@ class Program
         int Choice = 0;
         int totalPoints =  0;
         List<Goal> goals = new List<Goal>();
+        List<string> stringGoals = new List<string>();
         string Menu = "Menu Options \n 1. Create New Goal \n 2. List Goals \n 3. Save Goals \n 4. Load Goals \n 5. Record Event \n 6. Quit";
         while (Choice != 6)
         {
@@ -98,18 +99,80 @@ class Program
             else if (Choice == 3)
             {
                 Console.WriteLine(Break);
+                Console.WriteLine("Please enter the filename (Ex. 'filename.txt')");
+                string fileName = Console.ReadLine();
+                foreach (Goal goal in goals)
+                {
+                    if (goal.GetGoalType() == "Simple Goal")
+                    {
+                        stringGoals.Add($"{goal.GetGoalType()}:{goal.GetName()}:{goal.GetDescription()}:{goal.GetPoints()}:{goal.getComplete()}");
+                    }
+                    else if (goal.GetGoalType() == "Eternal Goal")
+                    {
+                        stringGoals.Add($"{goal.GetGoalType()}:{goal.GetName()}:{goal.GetDescription()}:{goal.GetPoints()}:{goal.getComplete()}");
+                    }
+                    else if (goal.GetGoalType() == "Checklist Goal")
+                    {
+                        stringGoals.Add($"{goal.GetGoalType()}:{goal.GetName()}:{goal.GetDescription()}:{goal.GetPoints()}:{goal.getComplete()}:{goal.GetTimes()}");
+                    }
+                }
+                System.IO.File.WriteAllLines(fileName, stringGoals);
+                Console.WriteLine($"You successfully saved your entries to {fileName}");
             }
             //Load Goals
             else if (Choice == 4)
             {
                 Console.WriteLine(Break);
+                Console.WriteLine("Please enter the filename (Ex. 'filename.txt')");
+                string filename = Console.ReadLine();
+                string[] lines = System.IO.File.ReadAllLines(filename);
+                foreach (string line in lines)
+                {
+                    stringGoals.Add(line);
+                }
+                foreach (string index in stringGoals)
+                {
+                    string[] item = index.Split(":");
+                    if (item[0] == "Simple Goal")
+                    {
+                        SimpleGoal sGoal = new SimpleGoal();
+                        sGoal.SetGoalType(item[0]);
+                        sGoal.SetName(item[1]);
+                        sGoal.SetDescription(item[2]);
+                        sGoal.SetPoints(int.Parse(item[3]));
+                        sGoal.SetComplete(int.Parse(item[4]));
+                        goals.Add(sGoal);
+                    }
+                    else if (item[0] == "Eternal Goal")
+                    {
+                        EternalGoal eGoal = new EternalGoal();
+                        eGoal.SetGoalType(item[0]);
+                        eGoal.SetName(item[1]);
+                        eGoal.SetDescription(item[2]);
+                        eGoal.SetPoints(int.Parse(item[3]));
+                        eGoal.SetComplete(int.Parse(item[4]));
+                        goals.Add(eGoal);
+                    }
+                    else if (item[0] == "Checklist Goal")
+                    {
+                        ChecklistGoal cGoal = new ChecklistGoal();
+                        cGoal.SetGoalType(item[0]);
+                        cGoal.SetName(item[1]);
+                        cGoal.SetDescription(item[2]);
+                        cGoal.SetPoints(int.Parse(item[3]));
+                        cGoal.SetComplete(int.Parse(item[4]));
+                        cGoal.SetTimes(int.Parse(item[5]));
+                        goals.Add(cGoal);
+                    }
+                }
+                Console.WriteLine("Entries have been successfully loaded.");
             }
             //Record Event
             else if (Choice == 5)
             {
                 int indexNum = 1;
                 float completed =  0;
-                int timesCompleted = 1;
+                float timesCompleted = 1;
                 foreach (Goal goal in goals)
                 {
                     completed = goal.IsComplete();
@@ -137,16 +200,15 @@ class Program
                 int completedGoal = int.Parse(Console.ReadLine()) - 1;
                 if (goals[completedGoal].GetGoalType() == "Checklist Goal")
                 {
-                    int pastTimes = goals[completedGoal].getTimesCompleted();
+                    float pastTimes = goals[completedGoal].getComplete();
                     timesCompleted += pastTimes;
                 }
                 else
                 {
                     timesCompleted = 1;
                 }
-                totalPoints = goals[completedGoal].GetPoints();
-                goals[completedGoal].SetTimesCompleted(timesCompleted);
-                
+                goals[completedGoal].SetComplete(timesCompleted);
+                totalPoints += goals[completedGoal].GetPoints();
                 Console.WriteLine($"Congrats on completing your goal of: {goals[completedGoal].GetName()}!");
                 Console.WriteLine(Break);
                 

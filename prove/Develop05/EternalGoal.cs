@@ -8,4 +8,8 @@ public class EternalGoal : Goal
     {
         return _complete;
     }
+    public override float getComplete()
+    {
+        return base.getComplete();
+    }
 }
