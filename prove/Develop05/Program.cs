@@ -5,13 +5,13 @@ class Program
     static void Main(string[] args)
     {
         int Choice = 0;
-        string Break = "--------------------------------------------- \n \n---------------------------------------------";
         int totalPoints =  0;
         List<Goal> goals = new List<Goal>();
         string Menu = "Menu Options \n 1. Create New Goal \n 2. List Goals \n 3. Save Goals \n 4. Load Goals \n 5. Record Event \n 6. Quit";
         while (Choice != 6)
         {
             //Displays Menu and Reads response
+            string Break = $"--------------------------------------------- \nPoints: {totalPoints}\n---------------------------------------------";
             Console.WriteLine($"Points: {totalPoints}");
             Console.WriteLine($"{Menu}");
             Console.WriteLine($"v Select a choice from the menu: ");
