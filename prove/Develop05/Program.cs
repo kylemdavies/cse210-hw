@@ -12,6 +12,7 @@ class Program
         while (Choice != 6)
         {
             //Displays Menu and Reads response
+            Console.WriteLine($"Points: {totalPoints}");
             Console.WriteLine($"{Menu}");
             Console.WriteLine($"v Select a choice from the menu: ");
             Choice = int.Parse(Console.ReadLine());
@@ -108,6 +109,7 @@ class Program
             {
                 int indexNum = 1;
                 float completed =  0;
+                int timesCompleted = 1;
                 foreach (Goal goal in goals)
                 {
                     completed = goal.IsComplete();
@@ -133,10 +135,21 @@ class Program
                 Console.WriteLine(Break);
                 Console.WriteLine("Which goal did you acomplish?");
                 int completedGoal = int.Parse(Console.ReadLine()) - 1;
+                if (goals[completedGoal].GetGoalType() == "Checklist Goal")
+                {
+                    int pastTimes = goals[completedGoal].getTimesCompleted();
+                    timesCompleted += pastTimes;
+                }
+                else
+                {
+                    timesCompleted = 1;
+                }
                 totalPoints = goals[completedGoal].GetPoints();
+                goals[completedGoal].SetTimesCompleted(timesCompleted);
                 
                 Console.WriteLine($"Congrats on completing your goal of: {goals[completedGoal].GetName()}!");
                 Console.WriteLine(Break);
+                
             }
             else
             {

@@ -66,6 +66,15 @@ public class Goal
     {
         _times = times;
     }
+    public virtual int getTimesCompleted()
+    {
+        return 0;
+    }
+
+    public virtual void SetTimesCompleted(int times)
+    {
+        _times = times;
+    }
 
 }
 
