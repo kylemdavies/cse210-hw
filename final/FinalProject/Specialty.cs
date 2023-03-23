@@ -15,6 +15,6 @@ public class Specialty
     }
     public override void setSpecialtyRandom(List<string> specialties)
     {
-
+        _specialties = specialties;
     }
 }

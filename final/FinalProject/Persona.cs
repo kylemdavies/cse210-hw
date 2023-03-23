@@ -23,7 +23,7 @@ public class Persona
     }
     public virtual void setSpecialty(string specialty)
     {
-
+        
     }
     public virtual string getSpecialty()
     {
