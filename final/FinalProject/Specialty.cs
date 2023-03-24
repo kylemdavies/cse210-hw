@@ -1,6 +1,6 @@
 using System;
 
-public class Specialty
+public class Specialty : Persona
 {
     protected string _specialty;
     protected List<string> _specialties;
@@ -15,6 +15,8 @@ public class Specialty
     }
     public override void setSpecialtyRandom(List<string> specialties)
     {
-        _specialties = specialties;
+        Random rnd = new Random();
+        int num = rnd.Next(specialties.Count());
+        _specialty = specialties[num];
     }
 }

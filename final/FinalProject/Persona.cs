@@ -23,7 +23,7 @@ public class Persona
     }
     public virtual void setSpecialty(string specialty)
     {
-        
+
     }
     public virtual string getSpecialty()
     {
@@ -66,6 +66,18 @@ public class Persona
         return "";
     }
     public virtual void setSubraceRandom(List<string> Subraces)
+    {
+
+    }
+    public virtual void setBackground(string Background)
+    {
+
+    }
+    public virtual string getBackground()
+    {
+        return "";
+    }
+    public virtual void setBackgroundRandom(List<string> Backgrounds)
     {
 
     }
