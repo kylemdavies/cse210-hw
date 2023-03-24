@@ -21,14 +21,17 @@ class Program
                 if (Choice == 1)
                 {
                     //Will create a random "Character" (Persona) and then add it to the personas List
+                    Console.Clear();
                 }
                 else if (Choice == 2)
                 {
                     //Will display questions and give options for each attribute and create a cutomized "Character" (Persona) and then add it to the personas List
+                    Console.Clear();
                 }
                 else
                 {
                     //Will display the personas List
+                    Console.Clear();
                 }
             }
             else if (Choice == 2)
@@ -38,14 +41,17 @@ class Program
                 if (Choice == 1)
                 {
                     //Will create a random story and then add it to the stories List
+                    Console.Clear();
                 }
                 else if (Choice == 2)
                 {
                     //Will display questions like "What is the name of the city?" or "What is the bad guy after?" and then put the answers together in a "Madlibs" style story and then add it to the stories List
+                    Console.Clear();
                 }
                 else
                 {
                     //Will display the stories List
+                    Console.Clear();
                 }
             }
             else if (Choice == 3)
@@ -55,10 +61,12 @@ class Program
                 if (Choice == 1)
                 {
                     // Will ask what they want the file to be called then saves the personas list to the file
+                    Console.Clear();
                 }
                 else
                 {
                     // Will ask what they want the file to be called then saves the stories list to the file
+                    Console.Clear();
                 }
             }
             else if (Choice == 4)
@@ -68,10 +76,12 @@ class Program
                 if (Choice == 1)
                 {
                     // Will ask what the name of the file is then loads the personas list from the file
+                    Console.Clear();
                 }
                 else
                 {
                     // Will ask what the name of the file is then loads the stories list from the file
+                    Console.Clear();
                 }
             }
             else
