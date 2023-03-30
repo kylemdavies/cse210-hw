@@ -29,11 +29,11 @@ public class Persona
     {
         return "";
     }
-    public virtual void setSpecialtyRandom(List<string> specialties)
+    public virtual void setSpecialtyRandom()
     {
 
     }
-    public virtual void setSubspecialty(string Subspecialty)
+    public virtual void setSubspecialty(string specialty)
     {
 
     }
@@ -41,7 +41,7 @@ public class Persona
     {
         return "";
     }
-    public virtual void setSubspecialtyRandom(List<string> Subspecialties)
+    public virtual void setSubspecialtyRandom(string specialty)
     {
 
     }
@@ -53,11 +53,11 @@ public class Persona
     {
         return "";
     }
-    public virtual void setRaceRandom(List<string> races)
+    public virtual void setRaceRandom()
     {
 
     }
-    public virtual void setSubrace(string Subrace)
+    public virtual void setSubrace(string race)
     {
 
     }
@@ -65,7 +65,7 @@ public class Persona
     {
         return "";
     }
-    public virtual void setSubraceRandom(List<string> Subraces)
+    public virtual void setSubraceRandom(string race)
     {
 
     }
@@ -77,7 +77,7 @@ public class Persona
     {
         return "";
     }
-    public virtual void setBackgroundRandom(List<string> Backgrounds)
+    public virtual void setBackgroundRandom()
     {
 
     }
