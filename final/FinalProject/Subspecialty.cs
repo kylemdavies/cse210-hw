@@ -3,7 +3,20 @@ using System;
 public class Subspecialty : Persona
 {
     protected string _subspecialty;
-    public override void setSubspecialty(string specialty)
+    protected string[] _subspecialties;
+    public Subspecialty(string name, int age) : base(name, age)
+    {
+        
+    }
+    public override void setSubspecialty(string Subspecialty)
+    {
+        _subspecialty = Subspecialty;
+    }
+    public override string getSubspecialty()
+    {
+        return _subspecialty;
+    }
+    public override void setSubspecialties(string specialty)
     {
         if (specialty == "Barbarian")
         {
@@ -59,7 +72,7 @@ public class Subspecialty : Persona
         else if (specialty == "Warlock")
         {
             string[] _subspecialties = {"The Archfey", "The Fiend", "The Great Old One", 
-                    "The Undying", "The Dragon", "The Celestial", "The Hexblade"]};
+                    "The Undying", "The Dragon", "The Celestial", "The Hexblade"};
         }
         else if (specialty == "Wizard")
         {
@@ -71,16 +84,15 @@ public class Subspecialty : Persona
         {
             string[] _subspecialties = {"Alchemist", "Artillerist", "Battle Smith"};
         }
-        _subspecialty = subspecialty;
     }
-    public override string getSubspecialty()
+    public override string[] getSubspecialties()
     {
-        return _subspecialty;
+        return _subspecialties;
     }
-    public override void setSubspecialtyRandom(List<string> subspecialties)
+    public override void setSubspecialtyRandom()
     {
         Random rnd = new Random();
-        int num = rnd.Next(subspecialties.Count());
-        _subspecialty = subspecialties[num];
+        int num = rnd.Next(_subspecialties.Count());
+        _subspecialty = _subspecialties[num];
     }
 }

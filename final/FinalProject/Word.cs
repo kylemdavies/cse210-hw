@@ -12,6 +12,8 @@ public class Word
     public string[] _Names = {"Raven", "Brona", "Lorelai", "Alastair", "Azazel", "Jabez", "Sable", "Hades", "Odon", "Typhon", "Adrielle", "Thanatos", "Revon", "Kol", "Nyx", "Vlasta", "Keres", "Kuraim", "Ozul"};
     protected string _Item;
     public string[] _Items = {"Door of Delusion", "Gloves of Resurrection", "Eternity Crown", "Mask of Vengeance", "Tablet of Karma", "Pillar of Invincibility", "Fire Chalice"};
+    protected string _Title;
+    public string[] _Titles = {"Bloodthirsty", "Angel of Death", "Night Crawler", "Mutilator", "Whip", "Captain", "Sniper", "Death Grip", "Banshee", "Hunter", "Chain"};
 
     public void setTownName(string TownName)
     {
@@ -102,5 +104,23 @@ public class Word
     public string[] getItems()
     {
      return _Items;
+    }
+    public void setTitle(string Title)
+    {
+        _Title = Title;
+    }
+    public string getTitle()
+    {
+     return _Title;
+    }
+    public void setTitleRandom()
+    {
+        Random rnd = new Random();
+        int num = rnd.Next(_Titles.Count());
+        _Title = _Titles[num];
+    }
+    public string[] getTitles()
+    {
+     return _Titles;
     }
 }
